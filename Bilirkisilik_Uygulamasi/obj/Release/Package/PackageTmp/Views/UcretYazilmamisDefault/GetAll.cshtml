@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Bilirkisilik_Uygulamasi.Models.Entity.TBL_BILIRKISILIK>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Sarf Kararı Yazılmamış Dosyalar Raporu</h2>
+
+<p>
+    @Html.ActionLink("Print", "Yazdir1")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>BİRİM ADI</label>            
+        </th>
+        <th>
+            <label>DOSYA NO</label>            
+        </th>
+        <th>
+            <label>TESLİM TARİHİ</label>            
+        </th>
+        <th>
+            <label>BİLİRKİŞİ</label>            
+        </th>
+        
+
+    </tr> 
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TBL_BIRIMLER.BIRIMAD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DOSYANO)
+    </td>
+    <td>
+        @Convert.ToDateTime(item.TESLIMTARIHI).ToString("dd/MM/yyyy")
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TBL_BILIRKISILER.ADSOYAD)
+    </td>
+
+
+</tr>
+    }
+
+</table>
+
+
+

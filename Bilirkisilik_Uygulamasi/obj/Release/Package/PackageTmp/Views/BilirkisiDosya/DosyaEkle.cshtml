@@ -1,0 +1,35 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BILIRKISILIK
+@{
+    ViewBag.Title = "DosyaEkle";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+@using (Html.BeginForm("DosyaEkle", "BilirkisiDosya", FormMethod.Post))
+{
+
+    <div class="form-row">
+        <div class="col-3" style="margin-top: 15px; margin-left: 30px;">
+            <label>Gönderen Birim</label>
+            @Html.DropDownListFor(k => k.TBL_BIRIMLER.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        </div>
+        <div style="margin-top: 15px; margin-left: 30px;">
+            <label>Dosya No</label>
+            @Html.TextBoxFor(k => k.DOSYANO, new { @class = "form-control" })
+        </div>
+        <div style="margin-top: 15px; margin-left: 30px;">
+            <label>Dosya Gönderim Tarihi</label>
+            @Html.TextBoxFor(k => k.GELISTARIHI, "{0: dd/MM/yyyy}", new { @class = "form-control", @type = "date" })
+            
+
+        </div>
+        <div style="margin-top: 15px; margin-left: 30px;">
+            <label>İstenen Rapor Türü</label>
+            @Html.DropDownListFor(k => k.TBL_RAPORTURU.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        </div>
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <button class="btn btn-info">Dosya Ekle</button>
+    </div>
+    //Durum statüsünü true ye çekecek
+    <input type="hidden" name="DOSYADURUMU" value="True" />
+}
+

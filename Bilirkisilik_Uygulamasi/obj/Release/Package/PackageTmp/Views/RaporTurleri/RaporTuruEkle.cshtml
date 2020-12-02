@@ -1,0 +1,24 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_RAPORTURU
+
+@{
+    ViewBag.Title = "RaporTuruEkle";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm("RaporTuruEkle", "RaporTurleri", FormMethod.Post))
+{
+    <div class="form-group">
+        <div style="margin-top: 15px">
+            <label>Rapor Türü (Örn: Foto Çekim, Kamera Çekim, vs.) </label>
+            @Html.TextBoxFor(k => k.RAPORTURU, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+    <div style="margin-top: 15px">
+        <button class="btn btn-info">Rapor Türü Ekle</button>
+        <input type="hidden" name="DURUM" value="True" />
+    </div>
+}
+
+

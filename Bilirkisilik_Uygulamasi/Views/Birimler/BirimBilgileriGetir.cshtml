@@ -1,0 +1,22 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BIRIMLER
+
+@{
+    ViewBag.Title = "BirimBilgileriGetir";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm("BirimGuncelle", "Birimler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        <label>BİRİM ADI</label>
+        @Html.TextBoxFor(k => k.BIRIMAD, new { @class = "form-control" })
+
+    </div>
+    <button class="btn-warning">Güncelle</button>
+}
+
+
+

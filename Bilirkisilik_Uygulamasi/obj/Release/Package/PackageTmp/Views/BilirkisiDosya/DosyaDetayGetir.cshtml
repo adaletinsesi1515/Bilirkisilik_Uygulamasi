@@ -1,0 +1,61 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BILIRKISILIK
+
+@{
+    ViewBag.Title = "DosyaDetayGetir";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<h2>Rapor Teslim İşlemleri</h2>
+
+
+@using (Html.BeginForm("DosyaGuncelle", "BilirkisiDosya", FormMethod.Post))
+{
+<div class="form-row">
+    <div class="col-5" style="margin-top: 15px; margin-left: 30px;">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        <label>Gönderen Birim</label>
+        @Html.DropDownListFor(k => k.TBL_BIRIMLER.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>Dosya No</label>
+        @Html.TextBoxFor(k => k.DOSYANO, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>Dosya Gönderim Tarihi</label>
+        @Html.TextBoxFor(k => k.GELISTARIHI, "{0: dd/MM/yyyy}", new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>İstenen Rapor Türü</label>
+        @Html.DropDownListFor(k => k.TBL_RAPORTURU.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>İşlem Yapan Bilirkişi</label>
+        @Html.DropDownListFor(k => k.TBL_BILIRKISILER.ID, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>Dosya Teslim Tarihi</label>
+        @Html.TextBoxFor(k => k.TESLIMTARIHI, "{0: dd/MM/yyyy}", new { @class = "form-control", @type = "date" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>Takdir Edilen Sarf Ücreti</label>
+        @Html.TextBoxFor(k => k.UCRET, new { @class = "form-control" })
+    </div>
+    <div style="margin-top: 15px; margin-left: 30px;">
+        <label>Dosyaya ilişkin özel not</label>
+        @Html.TextAreaFor(k => k.NOTLAR, new { @class = "form-control" })
+    </div>
+</div>
+    <br/>
+    <button class="btn-warning">Kayıt Güncelle</button>
+    @*//Derdest durum statüsünü false a çekecek
+    <input type="hidden" name="DOSYADURUMU" value="False" />
+
+    //Ücretlik alan durumu statüsünü true a çekecek
+    <input type="hidden" name="DURUMU" value="True" />*@
+    <br/>
+
+    <div style="color: red">Dosya teslim edildiğinde ücret belli olmadığından lütfen ücret alanına 1 TL (rakamla 1) yazınız.</div>
+}
+

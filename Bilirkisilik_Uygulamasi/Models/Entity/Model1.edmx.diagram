@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b399fc5a6b2f426ab85626e681e1b2ca" Name="Diagram1">
+        <EntityTypeShape EntityType="DBBILIRKISIModel.TBL_BILIRKISILER" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBILIRKISIModel.TBL_BILIRKISILIK" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBILIRKISIModel.TBL_BIRIMLER" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBILIRKISIModel.TBL_RAPORTURU" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="DBBILIRKISIModel.FK_TBL_BILIRKISILIK_TBL_BILIRKISILER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBBILIRKISIModel.FK_TBL_BILIRKISILIK_TBL_BIRIMLER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBBILIRKISIModel.FK_TBL_BILIRKISILIK_TBL_RAPORTURU" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

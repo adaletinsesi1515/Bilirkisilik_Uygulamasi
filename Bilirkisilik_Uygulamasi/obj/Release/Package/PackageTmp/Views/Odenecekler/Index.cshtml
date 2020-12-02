@@ -1,0 +1,56 @@
+﻿@using Bilirkisilik_Uygulamasi.Models.Entity
+@model List<TBL_BILIRKISILIK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+
+<div>
+    <h2 style="margin-left: 30px; color: red">Ödeme Bekleyen Dosyalar Listesi</h2>
+
+</div>
+
+@*Dosya numarasına göre arama*@
+
+@using (Html.BeginForm("Index", "UcretYazilmamisDefault", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; margin-left: 30px;">
+        <b>Aranacak Dosya numarasını girin : &nbsp;</b> @Html.TextBox("t")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+
+<table class="table table-bordered" style="margin-left: 30px;">
+    <tr style="background: darkblue; color: white">
+        <th>ID</th>
+        <th>GÖNDEREN BİRİM</th>
+        <th>DOSYA NO</th>
+        <th>TESLİM TARİHİ</th>
+        <th>ALINACAK ÜCRET</th>
+        <th>BİLİRKİŞİ</th>
+        <th>ÖDEME DURUMU</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.TBL_BIRIMLER.BIRIMAD</td>
+            <td>@x.DOSYANO</td>
+            <td>@Convert.ToDateTime(x.TESLIMTARIHI).ToString("dd/MM/yyyy")</td>
+            <td>@x.UCRET</td>
+            <td>@x.TBL_BILIRKISILER.ADSOYAD</td>
+
+            <td>
+                <a href="/Odenecekler/OdemePasifEt/@x.ID" id="btnpasif" class="btn btn-danger">Pasif Et</a>
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+
+
+

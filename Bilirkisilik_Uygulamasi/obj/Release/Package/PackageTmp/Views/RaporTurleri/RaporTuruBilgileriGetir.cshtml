@@ -1,0 +1,21 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_RAPORTURU
+
+
+@{
+    ViewBag.Title = "RaporTuruBilgileriGetir";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm("RaporTuruGuncelle", "RaporTurleri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        <label>RAPOR TÜRÜ</label>
+        @Html.TextBoxFor(k => k.RAPORTURU, new { @class = "form-control" })
+
+    </div>
+    <button class="btn-warning">Güncelle</button>
+}
+

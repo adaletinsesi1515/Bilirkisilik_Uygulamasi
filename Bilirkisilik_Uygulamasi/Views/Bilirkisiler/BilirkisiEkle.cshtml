@@ -1,0 +1,37 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BILIRKISILER
+
+@{
+    ViewBag.Title = "BilirkisiEkle";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm("BilirkisiEkle", "Bilirkisiler", FormMethod.Post))
+{
+    <div class="form-group">
+        <div style="margin-top: 15px">
+            <label>Personel Adı ve Soyadı</label>
+            @Html.TextBoxFor(k => k.ADSOYAD, new { @class = "form-control" })
+            
+            <label>Sicili</label>
+            @Html.TextBoxFor(k => k.SICIL, new { @class = "form-control" })
+            
+            <label>Email Adresi</label>
+            @Html.TextBoxFor(k => k.EMAIL, new { @class = "form-control" })
+            
+            <label>Kullanıcı Adı</label>
+            @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control" })
+            
+            <label>Şifre</label>
+            @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+
+
+        </div>
+
+    </div>
+    <div style="margin-top: 15px">
+        <button class="btn btn-info">Bilirkişi Ekle</button>
+        <input type="hidden" name="DURUM" value="True" />
+    </div>
+}
+
+

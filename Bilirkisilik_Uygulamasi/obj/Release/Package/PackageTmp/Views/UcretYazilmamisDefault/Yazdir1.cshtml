@@ -1,0 +1,40 @@
+﻿@using Bilirkisilik_Uygulamasi.Models.Entity
+@model List<TBL_BILIRKISILIK>
+
+@{
+    ViewBag.Title = "Yazdir";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<h2>Sarf Yazılacak Dosyalar Listesi</h2>
+
+<p>
+    @Html.ActionLink("Print", "Yazdir")
+</p>
+
+<table class="table table-bordered" style="margin-left: 30px;">
+    <tr style="background: darkblue; color: white">
+        
+        <th>GÖNDEREN BİRİM</th>
+        <th>DOSYA NO</th>
+        <th>TESLİM TARİHİ</th>
+        <th>RAPOR TÜRÜ</th>
+        <th>BİLİRKİŞİ</th>
+        <th>DOSYA NOTLARI</th>        
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td>@x.TBL_BIRIMLER.BIRIMAD</td>
+            <td>@x.DOSYANO</td>
+            <td>@Convert.ToDateTime(x.TESLIMTARIHI).ToString("dd/MM/yyyy")</td>
+            <td>@x.TBL_RAPORTURU.RAPORTURU</td>
+            <td>@x.TBL_BILIRKISILER.ADSOYAD</td>
+            <td>@x.NOTLAR</td>          
+
+        </tr>
+
+    }
+
+</table>

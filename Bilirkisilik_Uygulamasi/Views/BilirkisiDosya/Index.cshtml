@@ -1,0 +1,50 @@
+﻿@using Bilirkisilik_Uygulamasi.Models.Entity
+@model List<TBL_BILIRKISILIK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+<div>
+    <h2 style="margin-left: 30px; color: red">Yapılacak Dosyalar Listesi</h2>
+
+</div>
+
+@*Dosya numarasına göre arama*@
+
+@using (Html.BeginForm("Index", "BilirkisiDosya", FormMethod.Get))
+{
+    <div style="margin-bottom: 15px; margin-top: 15px; margin-left: 30px;">
+        <b>Aranacak Dosya numarasını girin : &nbsp;</b> @Html.TextBox("t")
+        <input type="submit" value="Ara" />
+        <a href="/BilirkisiDosya/DosyaEkle/" class="btn btn-primary" style="margin-left: 30px;">Dosya Ekle</a>
+    </div>
+}
+
+
+<table class="table table-bordered" style="margin-left: 30px;">
+    <tr style="background: darkblue; color: white">
+        <th>ID</th>
+        <th>GÖNDEREN BİRİM</th>
+        <th>DOSYA NO</th>
+        <th>GÖNDERİM TARİHİ</th>
+        <th>RAPOR TÜRÜ</th>
+        <th>TESLİM ET</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.TBL_BIRIMLER.BIRIMAD</td>
+            <td>@x.DOSYANO</td>
+            <td>@Convert.ToDateTime(x.GELISTARIHI).ToString("dd/MM/yyyy")</td>
+            <td>@x.TBL_RAPORTURU.RAPORTURU</td>
+            <td><a href="/BilirkisiDosya/DosyaDetayGetir/@x.ID" class="btn btn-success">Dosya Teslimi</a></td>
+
+        </tr>
+
+    }
+
+</table>
+
+
+

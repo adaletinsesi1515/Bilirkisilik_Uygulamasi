@@ -1,0 +1,35 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BILIRKISILER
+
+@{
+    ViewBag.Title = "BilirkisiBilgileriGetir";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<h2>Bilirkisi Bilgileri</h2>
+
+@using (Html.BeginForm("BilirkisiGuncelle", "Bilirkisiler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+
+        <label>ADI SOYADI</label>
+        @Html.TextBoxFor(k => k.ADSOYAD, new { @class = "form-control" })
+
+        <label>SİCİLİ</label>
+        @Html.TextBoxFor(k => k.SICIL, new { @class = "form-control" })
+
+        <label>Email Adresi</label>
+        @Html.TextBoxFor(k => k.EMAIL, new { @class = "form-control" })
+            
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control" })
+            
+        <label>Şifre</label>
+        @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+
+
+    </div>
+    <button class="btn-warning">Güncelle</button>
+}
+

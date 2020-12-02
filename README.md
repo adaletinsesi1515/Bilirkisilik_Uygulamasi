@@ -1,0 +1,2 @@
+# Bilirkisilik_Uygulamasi
+ 

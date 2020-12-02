@@ -1,0 +1,23 @@
+﻿@model Bilirkisilik_Uygulamasi.Models.Entity.TBL_BIRIMLER
+@{
+    ViewBag.Title = "BirimEkle";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm("BirimEkle", "Birimler", FormMethod.Post))
+{
+    <div class="form-group">
+        <div style="margin-top: 15px">
+            <label>Birim Adı (Savcılık olanlar Savcı adı soyadı giriniz) </label>
+            @Html.TextBoxFor(k => k.BIRIMAD, new { @class = "form-control" })
+
+        </div>
+
+    </div>
+    <div style="margin-top: 15px">
+        <button class="btn btn-info">Birim Ekle</button>
+        <input type="hidden" name="DURUM" value="True" />
+    </div>
+}
+
+

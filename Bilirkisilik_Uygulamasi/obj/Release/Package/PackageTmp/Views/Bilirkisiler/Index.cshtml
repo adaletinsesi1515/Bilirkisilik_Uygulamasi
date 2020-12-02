@@ -1,0 +1,43 @@
+﻿@using Bilirkisilik_Uygulamasi.Models.Entity
+@model List<TBL_BILIRKISILER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+
+<h2 style="margin-left: 30px; color: red">Bilirkişiler</h2>
+
+<table class="table table-bordered" style="margin-left: 30px;">
+    <tr style="background: darkblue; color: white">
+        <th>ID</th>
+        <th>ADI SOYADI</th>
+        <th>SİCİLİ</th>
+        <th>EMAİL</th>
+        <th>PASİF ET</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.ADSOYAD</td>
+            <td>@x.SICIL</td>
+            <td>@x.EMAIL</td>
+            
+            <td>
+                <a href="/Bilirkisiler/BilirkisiPasifEt/@x.ID" id="btnpasif" class="btn btn-danger">Pasif Et</a>
+            </td>
+
+            <td><a href="/Bilirkisiler/BilirkisiBilgileriGetir/@x.ID" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+
+    }
+
+</table>
+<a href="/Bilirkisiler/BilirkisiEkle/" class="btn btn-primary" style="margin-left: 30px;">Bilirkişi Ekle</a>
+
+

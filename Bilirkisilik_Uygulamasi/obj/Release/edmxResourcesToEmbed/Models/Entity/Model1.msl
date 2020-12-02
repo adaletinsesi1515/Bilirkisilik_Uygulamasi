@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBBILIRKISIModelStoreContainer" CdmEntityContainer="DBBILIRKISIEntities1">
+    <EntitySetMapping Name="TBL_BILIRKISILER">
+      <EntityTypeMapping TypeName="DBBILIRKISIModel.TBL_BILIRKISILER">
+        <MappingFragment StoreEntitySet="TBL_BILIRKISILER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+          <ScalarProperty Name="SICIL" ColumnName="SICIL" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_BILIRKISILIK">
+      <EntityTypeMapping TypeName="DBBILIRKISIModel.TBL_BILIRKISILIK">
+        <MappingFragment StoreEntitySet="TBL_BILIRKISILIK">
+          <ScalarProperty Name="NOTLAR" ColumnName="NOTLAR" />
+          <ScalarProperty Name="UCRETDURUM" ColumnName="UCRETDURUM" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BIRIM_ID" ColumnName="BIRIM_ID" />
+          <ScalarProperty Name="DOSYANO" ColumnName="DOSYANO" />
+          <ScalarProperty Name="GELISTARIHI" ColumnName="GELISTARIHI" />
+          <ScalarProperty Name="RAPORTURU_ID" ColumnName="RAPORTURU_ID" />
+          <ScalarProperty Name="DOSYADURUMU" ColumnName="DOSYADURUMU" />
+          <ScalarProperty Name="BILIRKISI_ID" ColumnName="BILIRKISI_ID" />
+          <ScalarProperty Name="TESLIMTARIHI" ColumnName="TESLIMTARIHI" />
+          <ScalarProperty Name="UCRET" ColumnName="UCRET" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_BIRIMLER">
+      <EntityTypeMapping TypeName="DBBILIRKISIModel.TBL_BIRIMLER">
+        <MappingFragment StoreEntitySet="TBL_BIRIMLER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BIRIMAD" ColumnName="BIRIMAD" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_RAPORTURU">
+      <EntityTypeMapping TypeName="DBBILIRKISIModel.TBL_RAPORTURU">
+        <MappingFragment StoreEntitySet="TBL_RAPORTURU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RAPORTURU" ColumnName="RAPORTURU" />
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

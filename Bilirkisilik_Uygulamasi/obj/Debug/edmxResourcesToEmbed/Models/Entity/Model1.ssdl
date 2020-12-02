@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBBILIRKISIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_BILIRKISILER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADSOYAD" Type="varchar" MaxLength="50" />
+    <Property Name="SICIL" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICIADI" Type="varchar" MaxLength="50" />
+    <Property Name="SIFRE" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBL_BILIRKISILIK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BIRIM_ID" Type="int" />
+    <Property Name="DOSYANO" Type="varchar" MaxLength="50" />
+    <Property Name="GELISTARIHI" Type="smalldatetime" />
+    <Property Name="RAPORTURU_ID" Type="int" />
+    <Property Name="DOSYADURUMU" Type="bit" />
+    <Property Name="BILIRKISI_ID" Type="int" />
+    <Property Name="TESLIMTARIHI" Type="smalldatetime" />
+    <Property Name="UCRET" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DURUM" Type="bit" />
+    <Property Name="UCRETDURUM" Type="bit" />
+    <Property Name="NOTLAR" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TBL_BIRIMLER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BIRIMAD" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBL_RAPORTURU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RAPORTURU" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <Association Name="FK_TBL_BILIRKISILIK_TBL_BILIRKISILER">
+    <End Role="TBL_BILIRKISILER" Type="Self.TBL_BILIRKISILER" Multiplicity="0..1" />
+    <End Role="TBL_BILIRKISILIK" Type="Self.TBL_BILIRKISILIK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BILIRKISILER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_BILIRKISILIK">
+        <PropertyRef Name="BILIRKISI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_BILIRKISILIK_TBL_BIRIMLER">
+    <End Role="TBL_BIRIMLER" Type="Self.TBL_BIRIMLER" Multiplicity="0..1" />
+    <End Role="TBL_BILIRKISILIK" Type="Self.TBL_BILIRKISILIK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BIRIMLER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_BILIRKISILIK">
+        <PropertyRef Name="BIRIM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_BILIRKISILIK_TBL_RAPORTURU">
+    <End Role="TBL_RAPORTURU" Type="Self.TBL_RAPORTURU" Multiplicity="0..1" />
+    <End Role="TBL_BILIRKISILIK" Type="Self.TBL_BILIRKISILIK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_RAPORTURU">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_BILIRKISILIK">
+        <PropertyRef Name="RAPORTURU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBBILIRKISIModelStoreContainer">
+    <EntitySet Name="TBL_BILIRKISILER" EntityType="Self.TBL_BILIRKISILER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_BILIRKISILIK" EntityType="Self.TBL_BILIRKISILIK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_BIRIMLER" EntityType="Self.TBL_BIRIMLER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_RAPORTURU" EntityType="Self.TBL_RAPORTURU" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBL_BILIRKISILIK_TBL_BILIRKISILER" Association="Self.FK_TBL_BILIRKISILIK_TBL_BILIRKISILER">
+      <End Role="TBL_BILIRKISILER" EntitySet="TBL_BILIRKISILER" />
+      <End Role="TBL_BILIRKISILIK" EntitySet="TBL_BILIRKISILIK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_BILIRKISILIK_TBL_BIRIMLER" Association="Self.FK_TBL_BILIRKISILIK_TBL_BIRIMLER">
+      <End Role="TBL_BIRIMLER" EntitySet="TBL_BIRIMLER" />
+      <End Role="TBL_BILIRKISILIK" EntitySet="TBL_BILIRKISILIK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_BILIRKISILIK_TBL_RAPORTURU" Association="Self.FK_TBL_BILIRKISILIK_TBL_RAPORTURU">
+      <End Role="TBL_RAPORTURU" EntitySet="TBL_RAPORTURU" />
+      <End Role="TBL_BILIRKISILIK" EntitySet="TBL_BILIRKISILIK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
