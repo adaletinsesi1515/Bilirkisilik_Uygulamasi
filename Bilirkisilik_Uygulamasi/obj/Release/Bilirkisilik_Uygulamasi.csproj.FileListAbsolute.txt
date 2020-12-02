@@ -173,3 +173,4 @@ C:\Users\ab96085\source\repos\Bilirkisilik_Uygulamasi\Bilirkisilik_Uygulamasi\ob
 C:\Users\ab96085\source\repos\Bilirkisilik_Uygulamasi\Bilirkisilik_Uygulamasi\obj\Release\Bilirkisilik_Uygulamasi.dll
 C:\Users\ab96085\source\repos\Bilirkisilik_Uygulamasi\Bilirkisilik_Uygulamasi\obj\Release\Bilirkisilik_Uygulamasi.pdb
 C:\Users\ab96085\source\repos\Bilirkisilik_Uygulamasi\Bilirkisilik_Uygulamasi\bin\Rotativa.dll
+C:\Users\Burdur\source\repos\Bilirkisilik_Uygulamasi\Bilirkisilik_Uygulamasi\bin\Rotativa.dll
